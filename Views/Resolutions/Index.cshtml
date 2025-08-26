@@ -1,0 +1,21 @@
+﻿@model IEnumerable<NghiQuyetMVC.Models.Resolution>
+
+<h2>Danh sách Nghị định / Nghị quyết</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Số hiệu</th>
+        <th>Tiêu đề</th>
+        <th>Ngày ban hành</th>
+        <th></th>
+    </tr>
+@foreach (var r in Model) {
+    <tr>
+        <td>@r.number</td>
+        <td>@r.title</td>
+        <td>@r.issued_date?.ToString("dd/MM/yyyy")</td>
+        <td>
+            <a asp-controller="Resolutions" asp-action="Details" asp-route-id="@r.id">Chi tiết</a>
+        </td>
+    </tr>
+}
+</table>

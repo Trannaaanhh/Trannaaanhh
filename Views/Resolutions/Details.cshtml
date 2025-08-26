@@ -1,0 +1,29 @@
+﻿@model NghiQuyetMVC.Models.Resolution
+
+<h2>@Model.title</h2>
+<p><b>Số hiệu:</b> @Model.number</p>
+<p><b>Tóm tắt:</b> @Model.summary</p>
+<p><b>Ngày ban hành:</b> @Model.issued_date?.ToString("dd/MM/yyyy")</p>
+
+<h3>Danh sách Nhiệm vụ</h3>
+<table class="table table-striped">
+    <tr>
+        <th>Mã</th>
+        <th>Tiêu đề</th>
+        <th>Bộ chủ trì</th>
+        <th>Hạn</th>
+        <th>Trạng thái</th>
+        <th>Tiến độ (%)</th>
+    </tr>
+    @foreach (var t in Model.Tasks)
+    {
+        <tr>
+            <td>@t.code</td>
+            <td>@t.title</td>
+            <td>@t.Ministry?.name</td>
+            <td>@t.deadline?.ToString("dd/MM/yyyy")</td>
+            <td>@t.status</td>
+            <td>@t.progress</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<NghiQuyetMVC.Models.TaskOverview>
+
+@{
+    ViewData["Title"] = "Danh sách Nhiệm vụ";
+}
+
+<h2>Danh sách Nhiệm vụ</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Mã</th>
+            <th>Tiêu đề</th>
+            <th>Bộ chủ trì</th>
+            <th>Hạn</th>
+            <th>Trạng thái</th>
+            <th>Tiến độ (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Code</td>
+                <td>@task.Title</td>
+                <td>@task.LeadMinistryName</td>
+                <td>@task.Deadline?.ToString("dd-MM-yyyy")</td>
+                <td>@task.Status</td>
+                <td>@task.Progress</td>
+            </tr>
+        }
+    </tbody>
+</table>
